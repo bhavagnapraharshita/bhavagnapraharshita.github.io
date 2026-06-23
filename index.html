@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhavagna Praharshita | GIS Analyst & Remote Sensing Specialist</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+    :root {
+      --forest:   #1e4d3b;
+      --moss:     #2e7d52;
+      --leaf:     #4caf78;
+      --sand:     #f4f0e6;
+      --cream:    #fafaf7;
+      --charcoal: #1a1a2e;
+      --mid:      #4a5568;
+      --light:    #718096;
+      --white:    #ffffff;
+      --accent:   #e8a020;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    header {
+      background: var(--forest);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 28px;
+      letter-spacing: 0.4px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--leaf); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--forest) 0%, #0f3a2a 60%, #163d30 100%);
+      color: var(--white);
+      padding: 100px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234caf78' fill-opacity='0.06'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(76,175,120,0.2);
+      border: 1px solid rgba(76,175,120,0.4);
+      color: var(--leaf);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--leaf);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-tag {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--leaf);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: background 0.2s, transform 0.15s;
+      margin-right: 12px;
+    }
+
+    .btn-primary:hover { background: #3d9e65; transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      padding: 13px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-outline:hover { border-color: var(--leaf); color: var(--leaf); transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 72px 24px;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 8px;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 36px);
+      color: var(--forest);
+      margin-bottom: 28px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--leaf);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--mid);
+      margin-bottom: 16px;
+      font-size: 15.5px;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .highlight-card {
+      background: var(--white);
+      border-left: 4px solid var(--leaf);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .highlight-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .highlight-card p {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    /* ── SKILLS ── */
+    .skills-bg {
+      background: var(--sand);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-group {
+      background: var(--white);
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .skill-group h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--sand);
+    }
+
+    .skill-group ul {
+      list-style: none;
+    }
+
+    .skill-group li {
+      font-size: 14px;
+      color: var(--mid);
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-group li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--leaf);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── PROJECTS ── */
+    .project-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid rgba(46,125,82,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--forest);
+    }
+
+    .project-badge {
+      background: #e8f5ee;
+      color: var(--moss);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(46,125,82,0.25);
+      white-space: nowrap;
+    }
+
+    .project-badge.inprogress {
+      background: #fff4e0;
+      color: #b07d10;
+      border-color: rgba(232,160,32,0.3);
+    }
+
+    .project-card p {
+      color: var(--mid);
+      font-size: 14.5px;
+      margin-bottom: 14px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .meta-tag {
+      background: #f0f4f8;
+      color: var(--mid);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .project-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--forest), var(--moss));
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+    }
+
+    .project-card a {
+      color: var(--moss);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--leaf);
+      padding-bottom: 2px;
+      transition: color 0.2s;
+    }
+
+    .project-card a:hover { color: var(--forest); }
+
+    /* ── CONTACT ── */
+    .contact-bg { background: var(--sand); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .contact-item {
+      background: var(--white);
+      padding: 22px 24px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--charcoal);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: #e8f5ee;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-info h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 3px;
+    }
+
+    .contact-info p {
+      font-size: 13px;
+      color: var(--light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--forest);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 13px;
+    }
+
+    footer span { color: var(--leaf); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+      .nav-inner { flex-direction: column; gap: 12px; }
+      nav a { margin-left: 14px; }
+      .hero { padding: 70px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <div class="nav-inner">
+      <div class="nav-logo">Bhavagna Praharshita</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">GIS Analyst · South Australia</div>
+    <h1>Hello, I'm <span>Bhavagna</span> 👋</h1>
+    <p class="hero-sub">Spatial data analyst specialising in remote sensing, satellite image processing, and GIS-driven insights.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🛰 Remote Sensing</span>
+      <span class="hero-tag">🗺 ArcGIS Pro</span>
+      <span class="hero-tag">🐍 ArcPy & Python</span>
+      <span class="hero-tag">☁ Sentinel-2 · Landsat-8</span>
+      <span class="hero-tag">🌿 GEDI LiDAR</span>
+    </div>
+    <a href="#projects" class="btn-primary">View My Work</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-label">Who I am</div>
+    <h2>About Me</h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a GIS Analyst at the Department of Primary Industries and Regions South Australia (PIRSA), where I work in the Mining Tenements team supporting spatial data management and analysis across the state.
+        </p>
+        <p>
+          My background is in remote sensing — I hold a Master of Technology in Remote Sensing from JNTU Kakinada, where I researched satellite image reconstruction and cloud removal techniques under the guidance of scientists at NRSC/ISRO.
+        </p>
+        <p>
+          I'm passionate about using geospatial technology to solve real-world problems — from forest carbon stock monitoring to mining tenement management — and I enjoy building tools that make spatial data accessible and actionable.
+        </p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <h4>🎓 Education</h4>
+          <p>M.Tech, Remote Sensing — JNTU Kakinada<br>B.E., Civil Engineering — SRK Institute of Technology</p>
+        </div>
+        <div class="highlight-card">
+          <h4>💼 Current Role</h4>
+          <p>GIS Analyst (ASO4) — Mining Tenements, PIRSA, South Australia</p>
+        </div>
+        <div class="highlight-card">
+          <h4>🔬 Research Background</h4>
+          <p>Satellite image cloud removal · Classification accuracy · NRSC/ISRO collaboration</p>
+        </div>
+        <div class="highlight-card">
+          <h4>📍 Based in</h4>
+          <p>Alberton, Adelaide, South Australia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <div class="skills-bg">
+    <section class="section" id="skills">
+      <div class="section-label">What I work with</div>
+      <h2>Skills & Tools</h2>
+      <div class="divider"></div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h4>GIS Platforms</h4>
+          <ul>
+            <li>ArcGIS Pro</li>
+            <li>ArcGIS Online</li>
+            <li>Experience Builder</li>
+            <li>ModelBuilder</li>
+            <li>QGIS</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Remote Sensing</h4>
+          <ul>
+            <li>Sentinel-2 (Optical)</li>
+            <li>Landsat-8</li>
+            <li>GEDI LiDAR</li>
+            <li>ERDAS Imagine</li>
+            <li>Cloud removal techniques</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Programming</h4>
+          <ul>
+            <li>Python & ArcPy</li>
+            <li>Spatial analysis scripting</li>
+            <li>Automation workflows</li>
+            <li>Data processing</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h4>Other Tools</h4>
+          <ul>
+            <li>Git & GitHub</li>
+            <li>Microsoft Office Suite</li>
+            <li>Google Earth</li>
+            <li>HTML & CSS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-label">What I've built</div>
+    <h2>Projects</h2>
+    <div class="divider"></div>
+
+    <!-- Project 1: Forest Carbon -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3>🌿 Forest Carbon Stock Monitoring Dashboard</h3>
+        <span class="project-badge inprogress">In Progress</span>
+      </div>
+      <p>
+        An end-to-end geospatial dashboard integrating Sentinel-2 multispectral imagery, GEDI LiDAR data,
+        and ArcGIS Online to monitor and visualise forest carbon stocks in the Mount Lofty Ranges, South Australia.
+      </p>
+      <div class="project-meta">
+        <span class="meta-tag">Sentinel-2</span>
+        <span class="meta-tag">GEDI LiDAR</span>
+        <span class="meta-tag">ArcGIS Online</span>
+        <span class="meta-tag">Experience Builder</span>
+        <span class="meta-tag">NDVI</span>
+        <span class="meta-tag">AGB Estimation</span>
+      </div>
+      <p>
+        Calculates NDVI, estimates aboveground biomass (AGB = NDVI × 150), and derives carbon stock values
+        (Carbon Stock = AGB × 0.47) using GDA2020 MGA Zone 54 as the coordinate reference system.
+        Built using ArcPy automation and published through ArcGIS Online for interactive stakeholder access.
+      </p>
+    </div>
+
+    <!-- Project 2: Satellite Image Reconstruction -->
+    <div class="project-card">
+      <div class="project-header">
+        <h3>🛰 Satellite Image Reconstruction & Cloud Removal</h3>
+        <span class="project-badge">M.Tech Research · NRSC/ISRO</span>
+      </div>
+      <p>
+        M.Tech thesis research conducted in collaboration with NRSC/ISRO, Hyderabad. Investigated and compared
+        three cloud removal techniques — Brovey Image Fusion, Conditional Algorithm (SQL), and ECDR — across
+        study areas in Vijayawada, Hyderabad, and Visakhapatnam.
+      </p>
+      <div class="project-meta">
+        <span class="meta-tag">Sentinel-2</span>
+        <span class="meta-tag">Landsat-8</span>
+        <span class="meta-tag">ArcGIS</span>
+        <span class="meta-tag">ERDAS Imagine</span>
+        <span class="meta-tag">ECDR Algorithm</span>
+        <span class="meta-tag">Accuracy Assessment</span>
+      </div>
+      <div class="project-stat">
+        🏆 Best Accuracy: 89% Overall · Kappa 0.86 (ECDR Algorithm)
+      </div>
+      <p>
+        The ECDR algorithm outperformed both Fusion (84%, κ=0.80) and Conditional (79%, κ=0.73) methods,
+        demonstrating superior cloud pixel replacement through variance-based Cloud Replacement Pixel (CRP) calculation.
+        Supervised classification was applied post-reconstruction with ground truth validation from Google Earth.
+      </p>
+      <a href="project.html">View Full Project Details →</a>
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact-bg">
+    <section class="section" id="contact">
+      <div class="section-label">Get in touch</div>
+      <h2>Contact</h2>
+      <div class="divider"></div>
+      <p style="color: var(--mid); margin-bottom: 28px; font-size: 15px;">
+        Open to collaboration, research discussions, and GIS opportunities in South Australia.
+      </p>
+      <div class="contact-grid">
+        <a class="contact-item" href="https://www.linkedin.com/in/bhavagna-praharshita-pragada/" target="_blank">
+          <div class="contact-icon">💼</div>
+          <div class="contact-info">
+            <h4>LinkedIn</h4>
+            <p>bhavagna-praharshita-pragada</p>
+          </div>
+        </a>
+        <a class="contact-item" href="https://github.com/bhavagnapraharshita" target="_blank">
+          <div class="contact-icon">💻</div>
+          <div class="contact-info">
+            <h4>GitHub</h4>
+            <p>bhavagnapraharshita</p>
+          </div>
+        </a>
+        <a class="contact-item" href="https://bhavagnapraharshita.github.io" target="_blank">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-info">
+            <h4>Portfolio</h4>
+            <p>bhavagnapraharshita.github.io</p>
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <h4>Location</h4>
+            <p>Alberton, Adelaide, South Australia</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <span>Bhavagna Praharshita Pragada</span> · GIS Analyst · Adelaide, SA</p>
+  </footer>
+
+</body>
+</html>
